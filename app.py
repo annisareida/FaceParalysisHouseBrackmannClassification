@@ -45,7 +45,8 @@ elif input_type == 'Use Webcam':
 
 # Prediksi dan hasil
 if image_source:
-    st.image(image_source, caption="Input Image", use_column_width=True)
+    st.image(image_source, caption="Input Image", use_container_width=True)
+
 
     if st.button("Predict"):
         label, confidence = predict_image(image_source)
