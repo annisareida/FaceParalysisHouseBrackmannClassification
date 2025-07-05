@@ -8,7 +8,7 @@ import tensorflow as tf
 # Load model
 @st.cache_resource
 def load_model():
-    return tf.keras.models.load_model('final_modelYFPMEIIBINER100modelfit2.h5', compile=False)
+    return tf.keras.models.load_model('final_modelYFPMEIIBINERaug300.h5')
 
 model = load_model()
 class_names = ['Normal', 'Paralysis']
