@@ -38,17 +38,18 @@ def predict_image(img_pil):
 # UI Streamlit
 st.title("Face Paralysis Detection")
 st.write("Upload an image or use your webcam to classify face as **Normal** or **Paralysis**.")
+st.markdown("📌 **Note:** Please ensure the image contains only the **mouth area**, centered in the frame. The system will automatically crop the center 224x224 pixels for prediction.")
 
 # Pilih sumber gambar
 input_type = st.radio("Select input method:", ['Upload Image', 'Use Webcam'])
 
 image_source = None
 if input_type == 'Upload Image':
-    uploaded_file = st.file_uploader("Upload an image...", type=["jpg", "jpeg", "png"])
+    uploaded_file = st.file_uploader("Upload an image (mouth area only)...", type=["jpg", "jpeg", "png"])
     if uploaded_file:
         image_source = Image.open(uploaded_file).convert('RGB')
 elif input_type == 'Use Webcam':
-    webcam_image = st.camera_input("Take a photo")
+    webcam_image = st.camera_input("Take a photo (mouth centered in frame)")
     if webcam_image:
         image_source = Image.open(webcam_image).convert('RGB')
 
