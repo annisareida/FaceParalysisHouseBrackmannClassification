@@ -15,7 +15,7 @@ class_names = ['Normal', 'Paralysis']
 
 # Prediksi
 def predict_image(img_pil):
-    img = img_pil.resize((256, 256))
+    img = img_pil.resize((224,224))
     img_array = image.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
     img_array = preprocess_input(img_array)
