@@ -13,9 +13,18 @@ def load_model():
 model = load_model()
 class_names = ['Normal', 'Paralysis']
 
+# Fungsi crop tengah
+def center_crop(img_pil, size=224):
+    width, height = img_pil.size
+    left = (width - size) // 2
+    top = (height - size) // 2
+    right = left + size
+    bottom = top + size
+    return img_pil.crop((left, top, right, bottom))
+
 # Prediksi
 def predict_image(img_pil):
-    img = img_pil.resize((224,224))
+    img = center_crop(img_pil, size=224)  # Crop 224x224 dari tengah
     img_array = image.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
     img_array = preprocess_input(img_array)
@@ -45,10 +54,12 @@ elif input_type == 'Use Webcam':
 
 # Prediksi dan hasil
 if image_source:
-    st.image(image_source, caption="Input Image", use_container_width=True)
-
+    st.image(image_source, caption="Original Image", use_container_width=True)
 
     if st.button("Predict"):
+        cropped_image = center_crop(image_source, 224)
+        st.image(cropped_image, caption="Cropped 224x224 Center", use_container_width=False)
+
         label, confidence = predict_image(image_source)
         st.success(f"Prediction: **{label}**")
         st.info(f"Confidence: **{confidence:.2f}**")
