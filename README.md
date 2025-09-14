@@ -3,10 +3,6 @@
 This repository contains the implementation of the **Face Paralysis Classification System**, a trial-and-error experimental work for a final project developed by Informatics Engineering students at **Sriwijaya University**.  
 The goal of this project is to assist in the early detection of facial paralysis by classifying facial images into two categories: **Paralysis** and **Normal**, using deep learning with transfer learning.
 
-## 🌍 Live Demo
-You can access the deployed system here:  
-👉 [Face Paralysis Classification Web App](https://kelumpuhan-wajah-full-unsri.streamlit.app/)
-
 ---
 
 ## 🎯 Project Objective
@@ -39,16 +35,6 @@ The system aims to provide a **fast, consistent, and accessible screening tool**
 3. **Deployment**  
    - Model integrated into a Streamlit web app  
    - Accessible online for interactive predictions  
-
----
-
-## ⚙️ How to Use
-1. Open the web app at: [https://kelumpuhan-wajah-full-unsri.streamlit.app/](https://kelumpuhan-wajah-full-unsri.streamlit.app/)  
-2. Choose your input method:
-   - **Webcam** (capture face directly)  
-   - **Upload a photo**  
-3. Click **Predict**  
-4. The system will instantly display the classification result: **Complete**, **Mild**, **Moderate**, **Near Normal**, **Normal**, **Severe** 
 
 ---
 
